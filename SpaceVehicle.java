@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class SpaceVehicle {
     private int positionX;
@@ -76,6 +77,18 @@ public class SpaceVehicle {
         }
     }
 
+    public void turnUp() {
+        if ("N".equals(currentDirection)) {
+            currentDirection = "U";
+        } else if ("S".equals(currentDirection)) {
+            currentDirection = "D";
+        } else if ("E".equals(currentDirection)) {
+            currentDirection = "U";
+        } else if ("W".equals(currentDirection)) {
+            currentDirection = "D";
+        }
+    }
+
 
     public void processCommands(String[] commands) {
         for (String command : commands) {
@@ -92,6 +105,9 @@ public class SpaceVehicle {
                 case "r":
                     turnRight();
                     break;
+                case "u":
+                    turnUp();
+                    break;
                 
             }
         }
@@ -107,7 +123,10 @@ public class SpaceVehicle {
 
     public static void main(String[] args) {
         SpaceVehicle spaceVehicle = new SpaceVehicle();
-        String[] commands = {"f", "r", "u", "b", "l"};
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a sequence of commands (e.g., f, r, u, b, l):");
+        String input = scanner.nextLine();
+        String[] commands = input.split(",\\s*"); // Split commands by commas
 
         spaceVehicle.processCommands(commands);
 
