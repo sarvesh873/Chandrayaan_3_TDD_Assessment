@@ -13,19 +13,35 @@ public class SpaceVehicle {
     }
 
     public void moveForward() {
-        if ("N".equals(currentDirection)) {
-            positionY++;
-        } else  {
-            positionY--;
-        } 
-    }
+                if ("N".equals(currentDirection)) {
+                    positionY++;
+                } else if ("S".equals(currentDirection)) {
+                    positionY--;
+                } else if ("E".equals(currentDirection)) {
+                    positionX++;
+                } else if ("W".equals(currentDirection)) {
+                    positionX--;
+                } else if ("U".equals(currentDirection)) {
+                    positionZ++;
+                } else if ("D".equals(currentDirection)) {
+                    positionZ--;
+                }
+            }
 
 
     public void turnLeft() {
         if ("N".equals(currentDirection)) {
             currentDirection = "W";
-        } else  {
+        } else if ("S".equals(currentDirection)) {
             currentDirection = "E";
+        } else if ("E".equals(currentDirection)) {
+            currentDirection = "N";
+        } else if ("W".equals(currentDirection)) {
+            currentDirection = "S";
+        } else if ("U".equals(currentDirection)) {
+            currentDirection = "N";
+        } else if ("D".equals(currentDirection)) {
+            currentDirection = "S";
         }
     }
 
@@ -55,7 +71,7 @@ public class SpaceVehicle {
 
     public static void main(String[] args) {
         SpaceVehicle spaceVehicle = new SpaceVehicle();
-        String[] commands = {"f", "l"};
+        String[] commands = {"f", "r", "u", "b", "l"};
 
         spaceVehicle.processCommands(commands);
 
