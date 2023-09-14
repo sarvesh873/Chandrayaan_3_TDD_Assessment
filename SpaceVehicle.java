@@ -60,6 +60,22 @@ public class SpaceVehicle {
         }
     }
 
+    public void turnRight() {
+        if ("N".equals(currentDirection)) {
+            currentDirection = "E";
+        } else if ("S".equals(currentDirection)) {
+            currentDirection = "W";
+        } else if ("E".equals(currentDirection)) {
+            currentDirection = "S";
+        } else if ("W".equals(currentDirection)) {
+            currentDirection = "N";
+        } else if ("U".equals(currentDirection)) {
+            currentDirection = "N";
+        } else if ("D".equals(currentDirection)) {
+            currentDirection = "S";
+        }
+    }
+
 
     public void processCommands(String[] commands) {
         for (String command : commands) {
@@ -72,6 +88,9 @@ public class SpaceVehicle {
                     break;
                 case "l":
                     turnLeft();
+                    break;
+                case "r":
+                    turnRight();
                     break;
                 
             }
