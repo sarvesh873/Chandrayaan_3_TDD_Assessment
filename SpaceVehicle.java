@@ -27,6 +27,21 @@ public class SpaceVehicle {
                     positionZ--;
                 }
             }
+        public void moveBackward() {
+        if ("N".equals(currentDirection)) {
+            positionY--;
+        } else if ("S".equals(currentDirection)) {
+            positionY++;
+        } else if ("E".equals(currentDirection)) {
+            positionX--;
+        } else if ("W".equals(currentDirection)) {
+            positionX++;
+        } else if ("U".equals(currentDirection)) {
+            positionZ--;
+        } else if ("D".equals(currentDirection)) {
+            positionZ++;
+        }
+    }
 
 
     public void turnLeft() {
@@ -52,7 +67,9 @@ public class SpaceVehicle {
                 case "f":
                     moveForward();
                     break;
-               
+                case "b":
+                    moveBackward();
+                    break;
                 case "l":
                     turnLeft();
                     break;
