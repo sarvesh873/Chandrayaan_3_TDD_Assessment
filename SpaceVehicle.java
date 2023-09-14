@@ -1,112 +1,149 @@
 import java.util.Scanner;
 
 public class SpaceVehicle {
-    private int positionX;
-    private int positionY;
-    private int positionZ;
-    private String currentDirection;
+    
+    private int xPos; // Current X position
+    private int yPos; // Current Y position
+    private int zPos; // Current Z position
+    private String currentDirection; // Current direction ("N", "S", "E", "W", "U", "D")
 
     // Constructor to initialize the space vehicle's initial position and direction
     public SpaceVehicle() {
-        this.positionX = 0;
-        this.positionY = 0;
-        this.positionZ = 0;
+        this.xPos = 0;
+        this.yPos = 0;
+        this.zPos = 0;
         this.currentDirection = "N";
     }
 
     // Method to move the space vehicle forward in the current direction
     public void moveForward() {
-        // Depending on the current direction, update the position
-        if ("N".equals(currentDirection)) {
-            positionY++;
-        } else if ("S".equals(currentDirection)) {
-            positionY--;
-        } else if ("E".equals(currentDirection)) {
-            positionX++;
-        } else if ("W".equals(currentDirection)) {
-            positionX--;
-        } else if ("U".equals(currentDirection)) {
-            positionZ++;
-        } else if ("D".equals(currentDirection)) {
-            positionZ--;
+        switch (currentDirection) {
+            case "N":
+                yPos++;
+                break;
+            case "S":
+                yPos--;
+                break;
+            case "E":
+                xPos++;
+                break;
+            case "W":
+                xPos--;
+                break;
+            case "U":
+                zPos++;
+                break;
+            case "D":
+                zPos--;
+                break;
         }
     }
 
     // Method to move the space vehicle backward in the current direction
     public void moveBackward() {
-        // Depending on the current direction, update the position
-        if ("N".equals(currentDirection)) {
-            positionY--;
-        } else if ("S".equals(currentDirection)) {
-            positionY++;
-        } else if ("E".equals(currentDirection)) {
-            positionX--;
-        } else if ("W".equals(currentDirection)) {
-            positionX++;
-        } else if ("U".equals(currentDirection)) {
-            positionZ--;
-        } else if ("D".equals(currentDirection)) {
-            positionZ++;
+        switch (currentDirection) {
+            case "N":
+                yPos--;
+                break;
+            case "S":
+                yPos++;
+                break;
+            case "E":
+                xPos--;
+                break;
+            case "W":
+                xPos++;
+                break;
+            case "U":
+                zPos--;
+                break;
+            case "D":
+                zPos++;
+                break;
         }
     }
 
     // Method to turn the space vehicle left
     public void turnLeft() {
-        // Depending on the current direction, change to the new direction
-        if ("N".equals(currentDirection)) {
-            currentDirection = "W";
-        } else if ("S".equals(currentDirection)) {
-            currentDirection = "E";
-        } else if ("E".equals(currentDirection)) {
-            currentDirection = "N";
-        } else if ("W".equals(currentDirection)) {
-            currentDirection = "S";
-        } else if ("U".equals(currentDirection) || "D".equals(currentDirection)) {
-            currentDirection = "N";
+        switch (currentDirection) {
+            case "N":
+                currentDirection = "W";
+                break;
+            case "S":
+                currentDirection = "E";
+                break;
+            case "E":
+                currentDirection = "N";
+                break;
+            case "W":
+                currentDirection = "S";
+                break;
+            case "U":
+                currentDirection = "N";
+                break;
+            case "D":
+                currentDirection = "S";
+                break;
         }
     }
 
     // Method to turn the space vehicle right
     public void turnRight() {
-        // Depending on the current direction, change to the new direction
-        if ("N".equals(currentDirection)) {
-            currentDirection = "E";
-        } else if ("S".equals(currentDirection)) {
-            currentDirection = "W";
-        } else if ("E".equals(currentDirection)) {
-            currentDirection = "S";
-        } else if ("W".equals(currentDirection)) {
-            currentDirection = "N";
-        } else if ("U".equals(currentDirection) || "D".equals(currentDirection)) {
-            currentDirection = "N";
+        switch (currentDirection) {
+            case "N":
+                currentDirection = "E";
+                break;
+            case "S":
+                currentDirection = "W";
+                break;
+            case "E":
+                currentDirection = "S";
+                break;
+            case "W":
+                currentDirection = "N";
+                break;
+            case "U":
+                currentDirection = "N";
+                break;
+            case "D":
+                currentDirection = "S";
+                break;
         }
     }
 
     // Method to turn the space vehicle upward
     public void turnUp() {
-        // Depending on the current direction, change to the new direction
-        if ("N".equals(currentDirection)) {
-            currentDirection = "U";
-        } else if ("S".equals(currentDirection)) {
-            currentDirection = "D";
-        } else if ("E".equals(currentDirection)) {
-            currentDirection = "U";
-        } else if ("W".equals(currentDirection)) {
-            currentDirection = "D";
+        switch (currentDirection) {
+            case "N":
+                currentDirection = "U";
+                break;
+            case "S":
+                currentDirection = "D";
+                break;
+            case "E":
+                currentDirection = "U";
+                break;
+            case "W":
+                currentDirection = "D";
+                break;
         }
     }
 
     // Method to turn the space vehicle downward
     public void turnDown() {
-        // Depending on the current direction, change to the new direction
-        if ("N".equals(currentDirection)) {
-            currentDirection = "D";
-        } else if ("S".equals(currentDirection)) {
-            currentDirection = "U";
-        } else if ("E".equals(currentDirection)) {
-            currentDirection = "D";
-        } else if ("W".equals(currentDirection)) {
-            currentDirection = "U";
+        switch (currentDirection) {
+            case "N":
+                currentDirection = "D";
+                break;
+            case "S":
+                currentDirection = "U";
+                break;
+            case "E":
+                currentDirection = "D";
+                break;
+            case "W":
+                currentDirection = "U";
+                break;
         }
     }
 
@@ -141,7 +178,7 @@ public class SpaceVehicle {
 
     // Method to get the current position as an array of integers [x, y, z]
     public int[] getCurrentPosition() {
-        return new int[]{positionX, positionY, positionZ};
+        return new int[]{xPos, yPos, zPos};
     }
 
     // Method to get the current direction ("N", "S", "E", "W", "U", or "D")
